@@ -1,0 +1,31 @@
+.home-header {
+  padding: 11px 0;
+  &__logo {
+    margin-right: 56px;
+  }
+  &__input--search {
+    width: 100%;
+    max-width: 670px;
+    padding: 15px 16px;
+    padding-left: 48px;
+    border: none;
+    background: #f8fafd;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    background-image: url("../img/lupa.png");
+    background-repeat: no-repeat;
+    background-position: center left 16px;
+    &::placeholder {
+      font-family: "Rubik";
+      font-style: normal;
+      font-weight: normal;
+      font-size: 13px;
+      line-height: 15px;
+
+      color: rgba(0, 0, 0, 0.24);
+    }
+  }
+  &__btn--logout {
+    margin-left: 15px;
+  }
+}

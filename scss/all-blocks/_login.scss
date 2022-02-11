@@ -38,8 +38,17 @@
     font-family: "Montserrat";
     font-weight: 600;
     color: #0d75ff;
-    border: transparent;
+    border: 1px solid transparent;
     border-radius: 4px;
     padding: 12px 0;
+    &:hover {
+      border: 1px solid #ffffff;
+      background-color: transparent;
+    }
+    &:active {
+      border: 1px solid transparent;
+      background-color: #ffffff;
+      opacity: 0.5;
+    }
   }
 }
