@@ -10,6 +10,7 @@
     <title>BookShelter</title>
   </head>
   <body>
+    <h1 class="visually-hidden">BookShelter</h1>
     <header class="home-header">
       <div class="container d-flex align-items-center">
         <img
@@ -36,7 +37,51 @@
     </header>
     <main>
       <section class="home-hero">
-        <div class="container"></div>
+        <hr class="home-hero__devider" />
+        <div
+          class="container d-flex align-items-center justify-content-between"
+        >
+          <p class="home-hero__search--result my-auto">
+            Showing
+            <span class="home-hero__search--result-js">18</span> Result(s)
+          </p>
+          <button class="btn btn-secondary home-hero__btn--order">
+            <img src="./img/calendar.png" alt="" width="24" height="24" /> Order
+            by newest
+          </button>
+        </div>
+        <hr class="home-hero__devider" />
+      </section>
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-3 bookmarks">
+              <div>
+                <h2 class="bookmarks__title">Bookmarks</h2>
+                <p class="bookmarks__desc">
+                  If you don’t like to read, you haven’t found the right book
+                </p>
+              </div>
+              <ul class="list-unstyled p-0">
+                <li class="bookmarks__item d-flex align-items-center mb-3">
+                  <div>
+                    <h3 class="bookmarks__title--inner">Python</h3>
+                    <p class="bookmarks__desc--inner">David M. Beazley</p>
+                  </div>
+                  <img
+                    class="ms-auto me-1"
+                    src="./img/book-open.png"
+                    width="24"
+                    height="24"
+                    alt=""
+                  />
+                  <img src="./img/delete.png" width="24" height="24" alt="" />
+                </li>
+              </ul>
+            </div>
+            <div class="col-9 cards"></div>
+          </div>
+        </div>
       </section>
     </main>
     <script src="./bootstrap/bootstrap.bundle.min.js"></script>

@@ -1,0 +1,20 @@
+.home-hero {
+  &__search--result {
+    margin-left: 300px;
+    font-family: "Rubik";
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  &__btn--order {
+    margin: 11px 0;
+    font-family: "Rubik";
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  &__devider {
+    margin: 0;
+    padding: 0;
+  }
+}
