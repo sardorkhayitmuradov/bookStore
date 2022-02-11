@@ -4,12 +4,40 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./img/site-icon.svg" />
     <link rel="stylesheet" href="./bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/main.min.css" />
     <title>BookShelter</title>
   </head>
-  <body>
-    <h1 style="font-family: SF Pro Text">Salom mishqilar</h1>
+  <body class="login-page">
+    <div class="container d-flex flex-column align-items-center my-auto">
+      <img
+        class="login-page__logo"
+        src="./img/login-logo.svg"
+        alt="Site background"
+        width="226"
+        height="44"
+      />
+      <form method="post" class="login-page__form d-flex flex-column">
+        <input
+          class="login-page__username"
+          type="text"
+          placeholder="Username"
+          name="user_name"
+          required
+          autocomplete="off"
+        />
+        <input
+          class="login-page__password"
+          type="password"
+          placeholder="password"
+          name="user_password"
+          required
+          autocomplete="off"
+        />
+        <button class="login-page__button" type="submit">LOGIN</button>
+      </form>
+    </div>
     <script src="./bootstrap/bootstrap.bundle.min.js"></script>
     <script src="./js/script.js"></script>
   </body>

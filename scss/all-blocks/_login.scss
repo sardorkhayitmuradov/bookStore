@@ -1,0 +1,45 @@
+.login-page {
+  background-image: url("../img/Login-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  &__logo {
+    margin-bottom: 50px;
+  }
+  &__form {
+    width: 300px;
+  }
+  &__username,
+  &__password {
+    margin-bottom: 20px;
+    padding: 12px;
+    padding-left: 51px;
+    background-color: transparent;
+    border-radius: 4px;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    &::placeholder {
+      font-family: "Montserrat";
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+  }
+  &__username {
+    background-image: url("../img/user-icon.png");
+    background-repeat: no-repeat;
+    background-position: center left 12px;
+  }
+  &__password {
+    background-image: url("../../img/lock-icon.png");
+    background-repeat: no-repeat;
+    background-position: center left 12px;
+  }
+  &__button {
+    margin-top: 23px;
+    font-family: "Montserrat";
+    font-weight: 600;
+    color: #0d75ff;
+    border: transparent;
+    border-radius: 4px;
+    padding: 12px 0;
+  }
+}
