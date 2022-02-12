@@ -158,8 +158,19 @@ const renderModal = (obj, element) => {
 //pagenation uchu funksiya
 const renderPagenation = (arr, element) => {
   elPagenation.innerHTML = "";
+  if (page === 1) {
+    elPrevBtn.disabled = true;
+  } else {
+    elPrevBtn.disabled = false;
+  }
 
   const countPage = Math.ceil(Number(arr.totalItems) / 12);
+
+  if (page === countPage) {
+    elNextBtn.disabled = true;
+  } else {
+    elNextBtn.disabled = false;
+  }
   for (let i = 1; i <= countPage; i++) {
     let newPgeBtn = document.createElement("button");
 
@@ -290,3 +301,16 @@ elOrderBtn.addEventListener("click", () => {
   order = "&orderBy=newest";
   getBooks();
 });
+
+elNextBtn.onclick = () => {
+  page = page + 12;
+  getBooks();
+};
+elPrevBtn.onclick = () => {
+  if (page <= 1) {
+    elPrevBtn.disable = true;
+  } else {
+    page = page - 12;
+    getBooks();
+  }
+};
