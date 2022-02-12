@@ -1,6 +1,7 @@
 /* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
+  opacity: 1;
+  visibility: visible; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -10,9 +11,14 @@
   overflow: auto; /* Enable scroll if needed */
   background-color: rgba(0, 0, 0, 0.8); /* Fallback color */
 }
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
 
 /* Modal Content/Box */
 .modal-content {
+  width: 100%;
   position: absolute;
   background-color: #fefefe;
   border: 1px solid #888;
@@ -52,6 +58,7 @@
   line-height: 28px;
 }
 .modal__desc {
+  width: 100% !important;
   margin-top: 25px;
   font-family: "Rubik";
   font-size: 13px;

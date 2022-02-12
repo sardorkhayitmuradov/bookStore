@@ -1,0 +1,9 @@
+.group-pagenation {
+  width: 100%;
+  max-width: 400px !important;
+  overflow-x: auto;
+}
+.active {
+  background-color: #6c757d !important;
+  color: white !important;
+}
