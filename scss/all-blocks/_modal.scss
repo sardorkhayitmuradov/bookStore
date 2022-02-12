@@ -1,0 +1,81 @@
+/* The Modal (background) */
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.8); /* Fallback color */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  position: absolute;
+  background-color: #fefefe;
+  border: 1px solid #888;
+  width: 35%; /* Could be more or less, depending on screen size */
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  color: #aaa;
+  right: 32px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal__header,
+.modal__footer {
+  width: 100%;
+  padding: 23px 33px;
+  background: #f8fafd;
+}
+.modal__title {
+  margin: 0;
+  padding: 0;
+  font-family: "Rubik";
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+}
+.modal__desc {
+  margin-top: 25px;
+  font-family: "Rubik";
+  font-size: 13px;
+  line-height: 170.3%;
+  color: #58667e;
+}
+.modal__body {
+  padding: 33px;
+  overflow-y: auto;
+}
+.modal__btn--read {
+  padding: 9px 38px !important;
+  font-family: "Rubik";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+}
+.modal__span {
+  margin: 0 3px;
+  padding: 5px 20px;
+  font-family: "Rubik";
+  font-size: 14px;
+  line-height: 17px;
+  color: #0d75ff;
+  background: rgba(13, 117, 255, 0.09);
+  border-radius: 30px;
+}
