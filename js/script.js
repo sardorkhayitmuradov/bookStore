@@ -275,8 +275,8 @@ let getBooks = async () => {
         renderModal(foundModal, elModal);
       }
     });
-  } catch (error) {
-    alert(error);
+  } catch {
+    elResultList.textContent = "Izlangan kitobni topishning iloji bo`lmadi 😓";
   }
 };
 getBooks();
