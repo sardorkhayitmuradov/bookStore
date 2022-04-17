@@ -178,20 +178,17 @@ const renderPagenation = (arr, element) => {
     newPgeBtn.setAttribute("class", "btn btn-outline-secondary");
 
     newPgeBtn.textContent = i;
-
+    if (i == (page == 1 ? 1 : page / 10)) {
+      newPgeBtn.classList.add("active");
+    }
     element.appendChild(newPgeBtn);
   }
   let elPage = document.querySelectorAll(".btn-group button");
-  let active;
   elPage.forEach((item) => {
     item.addEventListener("click", () => {
-      if (active) {
-        item.classList.remove("active");
-      }
-      active = item;
-      item.classList.add("active");
       let pageNumber = item.innerHTML == 1 ? 1 : item.innerHTML * 10;
       page = pageNumber;
+
       getBooks();
     });
   });
