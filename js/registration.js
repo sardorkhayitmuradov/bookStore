@@ -9,6 +9,12 @@ let elRegistrationUserPhoneNumber = document.querySelector(
 let elRegistrationUserEmail = document.querySelector('.login-page__userEmail');
 let elRegistrationPassword = document.querySelector('.login-page__password');
 let elRegistrationImage = document.querySelector('.login-page__photo');
+
+let already = document.querySelector('.already');
+
+already.addEventListener('click' , ()=> {
+  window.location.replace('login.html');
+})
 // let btn = document.querySelector('.formBtn')
 
 elRegistrationForm.addEventListener('submit', (evt) => {
