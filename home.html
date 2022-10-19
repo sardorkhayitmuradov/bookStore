@@ -12,7 +12,7 @@
   <body id="body">
     <h1 class="visually-hidden">BookShelter</h1>
     <header class="home-header">
-      <div class="container d-flex align-items-center">
+      <div class="container d-flex align-items-center justify-content-between">
         <img
           class="home-header__logo"
           src="./img/home-page-logo.svg"
@@ -20,14 +20,18 @@
           width="226"
           height="44"
         />
-        <input
-          class="home-header__input--search"
-          type="text"
-          placeholder="Search"
-          autocomplete="off
-        "
-        />
-        <div class="home-header__right ms-auto">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
+                <a class="nav-link" href="./addNewBook.html">Add a book</a>
+                <a class="nav-link" href="./users.html">Users of Books</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div class="home-header__right">
           <img src="./img/header_sun.svg" alt="" width="23" height="23" />
           <button class="btn btn-primary home-header__btn--logout">
             Logout
@@ -62,7 +66,7 @@
                   If you don’t like to read, you haven’t found the right book
                 </p>
               </div>
-              <ul class="list-unstyled p-0 bookmarks__list">
+              <ul class="list-unstyled p-0 bookmarks__list d-flex flex-wrap">
                 <!-- <li class="bookmarks__item d-flex align-items-center mb-3">
                   <div>
                     <h3 class="bookmarks__title--inner">Python</h3>

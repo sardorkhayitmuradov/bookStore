@@ -1,25 +1,25 @@
 "use strict";
 let elLoginForm = document.querySelector(".login-page__form");
-let elLoginUserName = document.querySelector(".login-page__username");
-let elLoginPassword = document.querySelector(".login-page__password");
+let elLoginUserEmail = document.querySelector(".login-page__userEmail");
+let elLoginUserPassword = document.querySelector(".login-page__password");
 
 elLoginForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  let userNameInputValue = elLoginUserName.value;
-  let userPasswordInputValue = elLoginPassword.value;
+  let userEmailValue = elLoginUserEmail.value;
+  let userPasswordValue = elLoginUserPassword.value;
 
-  fetch("https://reqres.in/api/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      email: userNameInputValue,
-      password: userPasswordInputValue,
-    }),
+  let formData = new FormData();
+
+  formData.append('Email', userEmailValue);
+  formData.append('Password', userPasswordValue);
+
+  fetch("https://book-shelter-webapi.herokuapp.com/api/Account/login", {
+    method: "Post",
+    body: formData,
   })
     .then((res) => res.json())
     .then((data) => {
+      console.log(data);
       if (data?.token) {
         window.localStorage.setItem("token", data.token);
 
@@ -29,3 +29,4 @@ elLoginForm.addEventListener("submit", (evt) => {
       }
     });
 });
+

@@ -24,3 +24,22 @@ img {
   height: auto;
   vertical-align: middle;
 }
+
+.login-page__photo[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: 1px solid #fff;
+  background: transparent;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+.login-page__photo[type=file]{
+  color: white;
+}
+
+.login-page__photo[type=file]::file-selector-button:hover {
+  background: #fff;
+  color: black;
+}

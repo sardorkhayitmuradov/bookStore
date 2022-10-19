@@ -9,6 +9,12 @@
     width: 300px;
   }
   &__username,
+  &__firstName,
+  &__lastName,
+  &__userAddress,
+  &__userPhoneNumber,
+  &__userPassword,
+  &__userEmail,
   &__password {
     margin-bottom: 20px;
     padding: 12px;
@@ -24,15 +30,47 @@
     }
   }
   &__username {
-    background-image: url("../img/user-icon.png");
+    background-image: url("../../img/user-icon.png");
     background-repeat: no-repeat;
+    background-position: center left 12px;
+  }
+  &__firstName {
+    background-image: url("../../img/user-icon.png");
+    background-repeat: no-repeat;
+    background-position: center left 12px;
+  }
+  &__lastName {
+    background-image: url("../../img/user-icon.png");
+    background-repeat: no-repeat;
+    background-position: center left 12px;
+  }
+  &__userAddress {
+    background-image: url("../../img/location.svg");
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: center left 12px;
+  }
+  &__userPhoneNumber {
+    background-image: url("../../img/phone.svg");
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: center left 12px;
+  }
+  &__userEmail {
+    background-image: url("../../img/email.svg");
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
     background-position: center left 12px;
   }
   &__password {
-    background-image: url("../../img/lock-icon.png");
+    background-image: url("../img/lock-icon.png");
     background-repeat: no-repeat;
     background-position: center left 12px;
   }
+  &__photoLabel {
+    color: white;
+  }
+  
   &__button {
     margin-top: 23px;
     font-family: "Montserrat";

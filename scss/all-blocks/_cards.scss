@@ -2,13 +2,14 @@
   background: #e5e5e5;
   &__list {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 270px 270px 270px;
     grid-gap: 15px;
     margin-top: 30px !important;
   }
   &__title {
     margin: 0;
     padding: 0;
+    width: 260px;
     margin-bottom: 2px;
     font-family: "Rubik";
     font-weight: 500;
@@ -23,6 +24,7 @@
     font-size: 13px;
     line-height: 18px;
     color: #757881;
+    width: 260px;
   }
   &__desc--year {
     margin: 0;

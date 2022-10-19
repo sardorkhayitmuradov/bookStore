@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/main.min.css" />
+    <title>Add a Book</title>
+  </head>
+  <body>
+    <header class="home-header">
+      <div class="container d-flex align-items-center justify-content-between">
+        <img
+          class="home-header__logo"
+          src="./img/home-page-logo.svg"
+          alt="Site logo"
+          width="226"
+          height="44"
+        />
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-link active" href="./home.html">Home</a>
+                <a class="nav-link" aria-current="page" href="./addNewBook.html">Add a book</a>
+                <a class="nav-link" href="./users.html">Users of Books</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div class="home-header__right">
+          <img src="./img/header_sun.svg" alt="" width="23" height="23" />
+          <button class="btn btn-primary home-header__btn--logout">
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="home-hero">
+        <div class="container" >
+          <h2 class="home-hero__title mb-3 text-center">Add A New Book !</h2>
+          <form class="add-book-form d-flex flex-column justify-content-center align-items-center mx-auto">
+            <div class="col-6 mb-3">
+              <input
+                type="text"
+                class="add-book-title form-control"
+                placeholder="Enter Book Title"
+                aria-label="Enter Book Title"
+                required
+                autocomplete="on"
+              />
+            </div>
+            <div class="mb-3 col-6">
+              <label for="formFile" class="form-label"
+                >Choose Book Image ..</label
+              >
+              <input class="add-book-image form-control" type="file" id="formFile" required  autocomplete="on" />
+            </div>
+            <div class="form-floating col-6 mb-3">
+              <textarea
+                class="add-book-description form-control"
+                placeholder="Leave a comment here"
+                id="floatingTextarea2"
+                style="height: 100px"
+                required
+                autocomplete="on"
+              ></textarea>
+              <label for="floatingTextarea2">Enter Book Description</label>
+            </div>
+            <div class="col-6 mb-3">
+              <input
+                type="text"
+                class="add-book-author-fullname form-control"
+                placeholder="Enter Book Author FullName"
+                aria-label="Enter Book Author FullName"
+                required
+                autocomplete="on"
+              />
+            </div>
+            <div class="col-6 mb-3">
+              <input
+                type="text"
+                class="add-book-published-year form-control"
+                placeholder="Enter Book Published Year"
+                aria-label="Enter Book Published Year"
+                required
+                autocomplete="on"
+              />
+            </div>
+            <div class="col-6 mb-3">
+              <select class="add-book-category form-select" aria-label="Default select example" required  autocomplete="on">
+                <option selected>Select Book Categroy</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+              </select>
+            </div>
+            <div class="col-6 mb-3">
+              <input
+                type="number"
+                class="add-pook-pages form-control"
+                placeholder="Enter Book Pages"
+                aria-label="Enter Book Pages"
+                autocomplete="on"
+                required
+              />
+            </div>
+            <button class="btn btn-success addBook" type="submit">Add a book</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script src="./bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="./js/addNewBook.js"></script>
+  </body>
+</html>

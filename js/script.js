@@ -10,9 +10,8 @@ if (!localToken) {
 
 elLogoutBtn.addEventListener("click", () => {
   window.localStorage.removeItem("token");
-  window.location.replace("index.html");
+  window.location.replace("login.html");
 });
-//////////////////////////////////////////////////////////////
 
 //Creat element qilish uchun detallar
 let elResultList = document.querySelector(".cards__list");
@@ -26,39 +25,39 @@ let elPrevBtn = document.querySelector(".prev-btn");
 let elNextBtn = document.querySelector(".next-btn");
 
 //Bookmarklar yaratish uchun funksiya
-const renderBookmarks = (arr, element) => {
-  element.innerHTML = null;
-  arr.forEach((book) => {
-    const html = `
-        <li class="bookmarks__item d-flex align-items-center mb-3">
-        <div>
-          <h3 class="bookmarks__title--inner">${book.volumeInfo.title}</h3>
-          <p class="bookmarks__desc--inner">${
-            book.volumeInfo.authors == undefined
-              ? "Author not found"
-              : book.volumeInfo.authors
-          }</p>
-        </div>
-        <a class="ms-auto me-1 flex-shrink-0" href="${
-          book.volumeInfo.previewLink
-        }"><img src="./img/book-open.png" width="24" height="24" alt="" /></a>
-        <button data-removebookmarkbtn='${
-          book.id
-        }' class="btn flex-shrink-0 bookmarks__remove--btn">
-          <img class="bookmarks__remove--btn"  data-removebookmarkbtn='${
-            book.id
-          }' src="./img/delete.png" width="24" height="24" alt="" />
-        </button>
-      </li>
-        `;
-    element.insertAdjacentHTML("beforeend", html);
-  });
-};
+// const renderBookmarks = (arr, element) => {
+//   element.innerHTML = null;
+//   arr.forEach((book) => {
+//     const html = `
+//         <li class="bookmarks__item d-flex align-items-center mb-3">
+//         <div>
+//           <h3 class="bookmarks__title--inner">${book.volumeInfo.title}</h3>
+//           <p class="bookmarks__desc--inner">${
+//             book.volumeInfo.authors == undefined
+//               ? "Author not found"
+//               : book.volumeInfo.authors
+//           }</p>
+//         </div>
+//         <a class="ms-auto me-1 flex-shrink-0" href="${
+//           book.volumeInfo.previewLink
+//         }"><img src="./img/book-open.png" width="24" height="24" alt="" /></a>
+//         <button data-removebookmarkbtn='${
+//           book.id
+//         }' class="btn flex-shrink-0 bookmarks__remove--btn">
+//           <img class="bookmarks__remove--btn"  data-removebookmarkbtn='${
+//             book.id
+//           }' src="./img/delete.png" width="24" height="24" alt="" />
+//         </button>
+//       </li>
+//         `;
+//     element.insertAdjacentHTML("beforeend", html);
+//   });
+// };
 
 //Bookmarklarni saqlash uchun array
 const bookmarkLocal = JSON.parse(window.localStorage.getItem("bookmarks"));
 const bookmarks = bookmarkLocal || [];
-renderBookmarks(bookmarks, elBookmarksList);
+// renderBookmarks(bookmarks, elBookmarksList);
 // Fetch dagi ma'lumotlar uchun o`zgaruvchilar
 let search = "search+terms";
 let order = "";
@@ -67,35 +66,35 @@ let page = 1;
 //Cardlar yaratish uchun funksiya
 
 const renderBooks = (arr, element) => {
+  // arr.forEach(el => {
+  //   console.log(el);
+  // })
   element.innerHTML = "";
-  arr.forEach((book) => {
+  arr.forEach((book,index) => {
     const html = `
     <li class="cards__item d-flex flex-column">
         <img class="mb-3 mx-auto mt-4" src="${
-          book.volumeInfo.imageLinks?.thumbnail
-        }" alt="" width="201" height="202" />
-        <h3 class="cards__title mt-auto">${book.volumeInfo.title}</h3>
+          book.imagePath
+        }" alt="" width="201px" height="202px" />
+        <h3 class="cards__title w-75">${book.title}</h3>
         <p class="cards__desc--author">${
-          book.volumeInfo.authors == undefined
+          book.authorFullName == undefined
             ? "Author not found"
-            : book.volumeInfo.authors
+            : book.authorFullName
         }</p>
         <p class="cards__desc--year">${
-          book.volumeInfo.publishedDate == undefined
+          book.publishedYear == undefined
             ? "Published date not found"
-            : book.volumeInfo.publishedDate
+            : book.publishedYear
         }</p>
-        <div class="cards__btn-cllection mb-1 mt-auto">
+        <div class="cards__btn-cllection mb-1">
             <button class="cards__btn--bookmark btn btn-warning" data-btnBookmar="${
-              book.id
+              index
             }">Bookmark</button>
             <button class="cards__btn--info text-primary" data-btnInfo="${
-              book.id
+              index
             }"> More Info</button>
         </div>
-        <a href="${
-          book.volumeInfo.previewLink
-        }" class="cards__btn--read btn btn-secondary">Read</a>
     </li>
     `;
     element.insertAdjacentHTML("beforeend", html);
@@ -178,17 +177,20 @@ const renderPagenation = (arr, element) => {
     newPgeBtn.setAttribute("class", "btn btn-outline-secondary");
 
     newPgeBtn.textContent = i;
-    if (i == (page == 1 ? 1 : page / 10)) {
-      newPgeBtn.classList.add("active");
-    }
+
     element.appendChild(newPgeBtn);
   }
   let elPage = document.querySelectorAll(".btn-group button");
+  let active;
   elPage.forEach((item) => {
     item.addEventListener("click", () => {
+      if (active) {
+        item.classList.remove("active");
+      }
+      active = item;
+      item.classList.add("active");
       let pageNumber = item.innerHTML == 1 ? 1 : item.innerHTML * 10;
       page = pageNumber;
-
       getBooks();
     });
   });
@@ -244,34 +246,35 @@ document.addEventListener("keydown", (evt) => {
 let getBooks = async () => {
   try {
     let res = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${search}${order}&maxResults=12&startIndex=${page}`
+      `https://book-shelter-webapi.herokuapp.com/api/Books?PageIndex=1&PageSize=30`
     );
     let data = await res.json();
-    elResultSum.textContent = data.totalItems;
-    renderBooks(data.items, elResultList);
-    renderPagenation(data, elPagenation);
-    elResultList.addEventListener("click", (evt) => {
-      if (evt.target.matches(".cards__btn--bookmark")) {
-        let bookmarkId = evt.target.dataset.btnbookmar;
-        const foundFilm = data.items.find((book) => bookmarkId == book.id);
-        if (!bookmarks.includes(foundFilm)) {
-          if (foundFilm != undefined) {
-            bookmarks.push(foundFilm);
-          }
-        } else {
-          alert("Bu bookmarklarga qo`shilgan");
-        }
-        renderBookmarks(bookmarks, elBookmarksList);
-        window.localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-      } else if (evt.target.matches(".cards__btn--info")) {
-        let infoId = evt.target.dataset.btninfo;
-        let foundModal = data.items.find((book) => book.id == infoId);
-        myModal.style.display = "block";
-        myModal.classList.remove("hidden");
-        scrollBody();
-        renderModal(foundModal, elModal);
-      }
-    });
+    console.log(data);
+    // elResultSum.textContent = data.totalItems;
+    renderBooks(data, elResultList);
+    // renderPagenation(data, elPagenation);
+    // elResultList.addEventListener("click", (evt) => {
+    //   if (evt.target.matches(".cards__btn--bookmark")) {
+    //     let bookmarkId = evt.target.dataset.btnbookmar;
+    //     const foundFilm = data.items.find((book) => bookmarkId == book.id);
+    //     if (!bookmarks.includes(foundFilm)) {
+    //       if (foundFilm != undefined) {
+    //         bookmarks.push(foundFilm);
+    //       }
+    //     } else {
+    //       alert("Bu bookmarklarga qo`shilgan");
+    //     }
+    //     renderBookmarks(bookmarks, elBookmarksList);
+    //     window.localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+    //   } else if (evt.target.matches(".cards__btn--info")) {
+    //     let infoId = evt.target.dataset.btninfo;
+    //     let foundModal = data.items.find((book) => book.id == infoId);
+    //     myModal.style.display = "block";
+    //     myModal.classList.remove("hidden");
+    //     scrollBody();
+    //     // renderModal(foundModal, elModal);
+    //   }
+    // });
   } catch {
     elResultList.textContent = "Izlangan kitobni topishning iloji bo`lmadi 😓";
   }
@@ -279,18 +282,18 @@ let getBooks = async () => {
 getBooks();
 
 //Search inputdan izlash uchun funksiya
-elSearchInput.onchange = () => {
-  let searchValue = elSearchInput.value.trim();
-  if (searchValue.length !== 0) {
-    elSearchInput.value = null;
-    order = "";
-    search = searchValue;
-    getBooks();
-  } else {
-    search = "search+terms";
-    getBooks();
-  }
-};
+// elSearchInput.onchange = () => {
+//   let searchValue = elSearchInput.value.trim();
+//   if (searchValue.length !== 0) {
+//     elSearchInput.value = null;
+//     order = "";
+//     search = searchValue;
+//     getBooks();
+//   } else {
+//     search = "search+terms";
+//     getBooks();
+//   }
+// };
 
 //Order qilish uchun funksiya
 

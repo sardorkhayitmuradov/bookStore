@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./img/site-icon.svg" />
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/main.min.css" />
+    <title>BookShelter</title>
+  </head>
+  <body class="login-page">
+    <div class="container d-flex flex-column align-items-center my-auto">
+      <img
+        class="login-page__logo"
+        src="./img/login-logo.svg"
+        alt="Site background"
+        width="226"
+        height="44"
+      />
+      <form method="post" class="login-page__form d-flex flex-column">
+        <input
+          class="login-page__firstName"
+          type="text"
+          placeholder="First Name"
+          name="first_name"
+          required
+          autocomplete="on"
+        />
+        <input
+          class="login-page__lastName"
+          type="text"
+          placeholder="Last Name"
+          name="last_name"
+          required
+          autocomplete="on"
+        />
+        <input
+          class="login-page__userAddress"
+          type="text"
+          placeholder="Address"
+          name="user_address"
+          required
+          autocomplete="on"
+        />
+        <input
+          class="login-page__userPhoneNumber"
+          type="tel"
+          placeholder="Phone Number"
+          name="user_number"
+          required
+          autocomplete="on"
+        />
+        <input
+          class="login-page__userEmail"
+          type="email"
+          placeholder="Email"
+          name="user_email"
+          required
+          autocomplete="on"
+        />
+        <input
+          class="login-page__password"
+          type="password"
+          placeholder="password"
+          name="user_password"
+          required
+          autocomplete="on"
+        />
+        <input type="file" accept="image/jpg, image/jpeg, image/png" class="login-page__photo" required>
+        <button class="login-page__button formBtn" type="submit">Register</button>
+      </form>
+    </div>
+    <script src="./bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="./js/registration.js"></script>
+  </body>
+</html>
